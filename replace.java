@@ -1,4 +1,12 @@
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class replace {
 	
@@ -36,12 +44,13 @@ public class replace {
                 sb.append(textinLine + "\n");
 				try {
 					while (true) {
-						String textToEdit1 = "abc";
+						String textToEdit1 = sWord;
 						int cnt1 = sb.indexOf(textToEdit1);
-						sb.replace(cnt1,cnt1+textToEdit1.length(),"REPLACED");
+						sb.replace(cnt1,cnt1+textToEdit1.length(),rWord);
 					}
 				}
 				catch (Exception e) {
+					// Ignore this guy (Buddy Garrity voice)
 				}
             }
 			

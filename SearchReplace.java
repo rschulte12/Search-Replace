@@ -6,27 +6,24 @@ public class SearchReplace {
 		String file, sWord, rWord;
 		int choice = 2;
 		Scanner userIn = new Scanner(System.in);
-		System.out.println("Enter name of the file: ");
-		file = userIn.next();
 		
-		System.out.println("Choose an operation: (0 or 1) \nShow word count [0]\nSearch and replace a word [1]");
-		choice = userIn.nextInt();
-		wordcount newWC = new wordcount(file); // ** Process the file to get all the word counts
+		while (true) {
+			System.out.println("Enter name of the file: ");
+			file = userIn.next();
 		
-		if (choice == 0) {
-			List<wordcount> WC = newWC.print(newC); // ** Print out the word counts to screen
-		}
-		else if (choice == 1) {
-			
-			
-			
-			replace newReplace = replace(newWC); // create new replace object for replace operations
-																// constructor displays the number of times the search word is in the file
-			newReplace.overWrite(rWord);
+			System.out.println("Choose an operation: (0 or 1) \nShow word count [0]\nSearch and replace a word [1]");
+			choice = userIn.nextInt();
+			wordcount newWC = new wordcount(file); // ** Process the file to get all the word counts
 		
-		}
-		else {
-			
+			if (choice == 0) {
+				List<wordcount> WC = newWC.print(newC); // ** Print out the word counts to screen
+			}
+			else if (choice == 1) {
+				replace newReplace = replace(file); // create new replace object 
+			}
+			else {
+				System.out.println("That's not a choice.");
+			}
 		}
 		
 		
