@@ -1,28 +1,40 @@
+//package searchreplace;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
+import java.util.*;
+
 
 public class SearchReplace {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		String file, sWord, rWord;
 		int choice = 2;
 		Scanner userIn = new Scanner(System.in);
 		
 		while (true) {
-			System.out.println("Enter name of the file: ");
+			System.out.println("\nEnter name of the file: ");
 			file = userIn.next();
 		
-			System.out.println("Choose an operation: (0 or 1) \nShow word count [0]\nSearch and replace a word [1]");
+			System.out.println("Choose an operation: (0, 1, 2) \nShow word count [0]\nSearch and replace a word [1]\nExit [2]");
 			choice = userIn.nextInt();
 			wordcount newWC = new wordcount(file); // ** Process the file to get all the word counts
 		
 			if (choice == 0) {
-				List<wordcount> WC = newWC.print(newC); // ** Print out the word counts to screen
+				newWC.print(newWC);
+				//List<wordcount> WC.addall(newWC.print(newC)); // ** Print out the word counts to screen
 			}
 			else if (choice == 1) {
-				replace newReplace = replace(file); // create new replace object 
+				replace newReplace = new replace(file); // create new replace object 
 			}
 			else {
-				System.out.println("That's not a choice.");
+				break;
 			}
 		}
 		

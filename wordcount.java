@@ -1,11 +1,23 @@
+//package searchreplace;
+
+import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
 class wordcount {
     String word;
     Set<Integer> positions = new HashSet<>();
     String f;
     
-    public List<wordcount> wordcount(String file) throws FileNotFoundException {
+    public wordcount(String file) {
         f = file;
-        return getWords();
     }
     public wordcount(String w, int p) {
         word = w;

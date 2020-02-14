@@ -1,4 +1,7 @@
+//package searchreplace;
+
 import java.util.Scanner;
+import java.util.*;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -8,10 +11,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class replace {
+class replace {
 	
-	private String sWord, rWord, fileName;
-	private Scanner userIn = new Scanner(System.in);
+	String sWord, rWord, fileName;
+	Scanner userIn = new Scanner(System.in);
 	
 	
 	public replace(String fileName) {
