@@ -94,4 +94,19 @@ class wordcount {
 
         return -1;
     }
+    
+    public List<wordcount> print(wordcount wc) throws FileNotFoundException {
+            List<wordcount> wordC = wc.getWords();
+
+            for(wordcount w: wordC) 
+            {
+                System.out.print("\nWord: " + w.word + "\nCharacter locations: ");
+                for(int i: w.positions)
+                {
+                    System.out.print(i + " ");
+                }
+            }
+        
+            return wordC;
+        }
 }
