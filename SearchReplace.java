@@ -14,7 +14,7 @@ public class SearchReplace {
 		wordcount newWC = new wordcount(file); // ** Process the file to get all the word counts
 		
 		if (choice == 0) {
-			newWC.print(newC); // ** Print out the word counts to screen
+			List<wordcount> WC = newWC.print(newC); // ** Print out the word counts to screen
 		}
 		else if (choice == 1) {
 			
