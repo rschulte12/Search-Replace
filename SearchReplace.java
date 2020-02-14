@@ -32,6 +32,7 @@ public class SearchReplace {
 			}
 			else if (choice == 1) {
 				replace newReplace = new replace(file); // create new replace object 
+				System.out.println("Done!");
 			}
 			else {
 				break;
