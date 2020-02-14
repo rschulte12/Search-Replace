@@ -1,4 +1,4 @@
-class wordCount {
+public class wordCount {
     String word;
     Set<Integer> positions = new HashSet<>();
     

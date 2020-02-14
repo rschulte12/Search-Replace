@@ -11,10 +11,10 @@ public class SearchReplace {
 		
 		System.out.println("Choose an operation: (0 or 1) \nShow word count [0]\nSearch and replace a word [1]");
 		choice = userIn.nextInt();
-		wordcount newWC = wordcount(file);
+		wordcount newWC = wordcount(file); // ** Process the file to get all the word counts
 		
 		if (choice == 0) {
-			newWC.print(1);
+			newWC.print(1); // ** Print out the word counts to screen
 		}
 		else if (choice == 1) {
 			
