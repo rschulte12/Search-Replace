@@ -53,7 +53,7 @@ class replace {
 					}
 				}
 				catch (Exception e) {
-					// Ignore this guy (Buddy Garrity voice)
+					System.err.println("Error: " + e.getMessage());
 				}
             }
 			
