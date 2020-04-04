@@ -53,7 +53,6 @@ class replace {
 					}
 				}
 				catch (Exception e) {
-					System.err.println("Error: " + e.getMessage());
 				}
             }
 			
