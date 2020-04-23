@@ -1,4 +1,4 @@
-package SearchReplace
+package searchreplace;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -7,9 +7,10 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
-static class wordcount extends Observer{
+class wordcount extends Observer{
     String word;
     Set<Integer> positions = new HashSet<>();
+    String file;
 
     public wordcount() {
     }
@@ -103,6 +104,7 @@ static class wordcount extends Observer{
 
     public void print(wordcount wc) throws FileNotFoundException {
         List<wordcount> wordC = wc.getWords();
+        System.out.println("WORD COUNT OF FILE:");
 
         for(wordcount w: wordC) 
         {
