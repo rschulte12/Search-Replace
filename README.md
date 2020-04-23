@@ -7,3 +7,8 @@ The program can be executed via a Linux bash shell and navigating to the folder 
 Reagan Schulte completed the wordcount.java file.
 Art Gomez completed the replace.java file.
 Both students completed the SearchReplace.java file.
+
+Assignment 3: 
+Reagan Schulte added observer pattern code to wordcount.java, and completed new class fileStats.
+Art Gomez added Subject code to replace.java.
+Both students edited SearchReplace.java
