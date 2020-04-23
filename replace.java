@@ -1,4 +1,4 @@
-//package searchreplace;
+package searchreplace;
 
 import java.util.Scanner;
 import java.util.*;
@@ -11,30 +11,32 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+// class replace is the subject class of the observer. 
+//This class handles the observes and also changes the file if user wants to
 class replace {
 	
 	String sWord, rWord, fileName;
 	Scanner userIn = new Scanner(System.in);
-	
-	
-	public replace(String fileName) {
-		this.fileName = fileName;
-		System.out.println("Enter a word to search for: ");
-		sWord = userIn.next();
-		System.out.println("Enter a replacement word: ");
-		rWord = userIn.next();
-	
-		File f=new File(fileName);
+        List<Observer> o = new ArrayList<>();
+        private int State;
         
-        FileInputStream fs = null;
-        InputStreamReader in = null;
-        BufferedReader br = null;
+        public void replaceWord() {
+            System.out.println("Enter a word to search for: ");
+            sWord = userIn.next();
+            System.out.println("Enter a replacement word: ");
+            rWord = userIn.next();
+
+            File f=new File(fileName);
         
-        StringBuffer sb = new StringBuffer();
+            FileInputStream fs = null;
+            InputStreamReader in = null;
+            BufferedReader br = null;
+
+            StringBuffer sb = new StringBuffer();
+
+            String textinLine;
         
-        String textinLine;
-        
-        try {
+            try {
              fs = new FileInputStream(f);
              in = new InputStreamReader(fs);
              br = new BufferedReader(in);
@@ -75,52 +77,34 @@ class replace {
             }catch (Exception e){
               System.err.println("Error: " + e.getMessage());
             }
-	}
+        }
+        
+        public void register(List<Observer> o) {
+            this.o.addAll(o);
+        }
+        
+        public void notifyObservers() throws FileNotFoundException {
+            for(Observer o: this.o)
+                o.update(fileName);
+        }
+        
+        public void setState(int state, String file) throws FileNotFoundException{
+            this.State = state;
+            this.fileName = file;
+            if(State == 0)
+            {
+                System.out.println("\n\nCurrent State: Finding file statistics....");
+                notifyObservers();
+            }
+            else if(State == 1)
+            {
+                System.out.println("\n\nCurrent State: replacing word...");
+                replaceWord();
+            }
+            else
+                System.out.println("\n\nCurrent State: exiting program...");
+        }
 }
-	
-	
-	
-	
-	
-	
-	
-	
-	/* private String sWord, rWord;
-	private Scanner userIn = new Scanner(System.in);
-	
-	
-	public replace(wordcount) {
-		System.out.println("Enter a word to search for: ");
-		sWord = userIn.next();
-		
-		if (find(sWord)) {
-			System.out.println("Enter a replacement word: ");
-			rWord = userIn.next();
-			
-			
-			
-			
-			
-			
-			
-		}
-		else {
-			System.out.println("That word doesn't exist in the file.");
-		}
-	}
-	
-	public boolean find(String sWord) { // Returns true if sWord exists in the wordcount list, false if it doesn't
-		
-		for (String foundWord : wc) { // For each word in the wordcount list
-			if (foundWord.equals(sWord)) { // Compare the list word to the searched word
-				return true; // Return true if a match is found
-			}
-		}
-		return false; // Return false if a match was never found
-	}
-	
-	
-	 */
 	
 	
 	
