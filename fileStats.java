@@ -1,3 +1,9 @@
+//package searchreplace;
+import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 class fileStats extends Observer {
       int charCount;
       int wordCount;
