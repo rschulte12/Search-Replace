@@ -1,31 +1,25 @@
-//package searchreplace;
-
-import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
+package SearchReplace
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
 
-class wordcount {
+static class wordcount extends Observer{
     String word;
     Set<Integer> positions = new HashSet<>();
-    String f;
-    
-    public wordcount(String file) {
-        f = file;
+
+    public wordcount() {
     }
     public wordcount(String w, int p) {
         word = w;
         positions.add(p);
     }
-    
+
     public List<wordcount> getWords() throws FileNotFoundException {
-        File file = new File(f);
+        File file = new File(this.file);
         Scanner scn = new Scanner(file);
         try {
             scn = new Scanner(file);
@@ -34,12 +28,12 @@ class wordcount {
             System.out.println("File not found");
         }
         String all = "";
-        
+
         while(scn.hasNextLine())      // add end line to each line
             all += (scn.nextLine() + "\n");
 
         String[] t = all.split("\n"); // split each line by end line character
-        
+
         List<wordcount> wc = new ArrayList<>();
         int c = 1;
         for(String o: t)
@@ -54,10 +48,10 @@ class wordcount {
             }
             c += o.length();
         }
-        
+
         return wc;
     }
-    
+
     public List<wordcount> lineReader(String s, int chars) { // List for storing strings and location
 
       s = s + " "; // Put a space at the end of s
@@ -95,9 +89,9 @@ class wordcount {
 
       return LineWC;
     }
-    
+
     public int search(List<wordcount> wc, String s) {
-        
+
         for(wordcount w: wc) 
         {
             if(w.word.equals(s))
@@ -106,19 +100,22 @@ class wordcount {
 
         return -1;
     }
-    
-    public List<wordcount> print(wordcount wc) throws FileNotFoundException {
-            List<wordcount> wordC = wc.getWords();
 
-            for(wordcount w: wordC) 
+    public void print(wordcount wc) throws FileNotFoundException {
+        List<wordcount> wordC = wc.getWords();
+
+        for(wordcount w: wordC) 
+        {
+            System.out.print("\nWord: " + w.word + "\nCharacter locations: ");
+            for(int i: w.positions)
             {
-                System.out.print("\nWord: " + w.word + "\nCharacter locations: ");
-                for(int i: w.positions)
-                {
-                    System.out.print(i + " ");
-                }
+                System.out.print(i + " ");
             }
-        
-            return wordC;
         }
+    }
+
+    public void update(String file) throws FileNotFoundException {
+        this.file = file;
+        this.print(this);
+    }
 }
