@@ -1,4 +1,3 @@
-package searchreplace;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.*;
@@ -15,7 +14,7 @@ public class SearchReplace {
         observers.add(fs);
         observers.add(wc);
         replace NR = new replace();
-        NR.register(observers);
+        NR.registerObservers(observers);
         while (true) {
             System.out.println("\nEnter name of the file: ");
             file = userIn.next();
@@ -26,7 +25,7 @@ public class SearchReplace {
                 choice = userIn.nextInt();
                 NR.setState(choice, file);
             }
-            choice = 0;
+            return;
         }
 
 
